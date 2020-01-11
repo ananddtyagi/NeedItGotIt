@@ -1,0 +1,13 @@
+Requirements:
+
+MVP: 1.0
+--Two sections, need it and got it, which have a series of cards
+----Cards
+------card contains the information of the individual or organization, contact info, short description of role / skills
+--At the bottom of each section, have a small button that allows you to add a new card
+
+2.0
+--Login screen, only NYU emails
+
+3.0
+??
