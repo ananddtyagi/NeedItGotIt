@@ -30,10 +30,6 @@ function App() {
       </head>
       <Grid container spacing={3} justify="center">
         <NeedIt></NeedIt>
-        <List>
-         <Divider classes={classes.divider} orientation="vertical" />
-        </List>
-         <NeedIt></NeedIt>
       </Grid>
     </div>
   );
