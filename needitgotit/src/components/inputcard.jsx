@@ -29,23 +29,26 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function InputCard() {
-  const classes = useStyles();
 
-  return (
-    <div>
-      <Card className={classes.card}>
-        <CardContent>
-          <FormControl>
-            <TextField id="name" label="name"/>
-            <TextField id="email" label="email"/>
-            <TextField id="description" label="skills"/>
-          </FormControl>
-        </CardContent>
-        <CardActions>
-          <Button className={classes.done} onClick={() => {this.props.openvar = false}}>Done</Button>
-        </CardActions>
-      </Card>
-    </div>
-  );
+  export default function InputCard({onCancel, onSubmit}) {
+
+    const classes = useStyles();
+
+    return (
+      <div>
+        <Card className={classes.card}>
+          <CardContent>
+            <FormControl>
+              <TextField id="name" label="name"/>
+              <TextField id="email" label="email"/>
+              <TextField id="description" label="skills"/>
+            </FormControl>
+          </CardContent>
+          <CardActions className={classes.cardActions}>
+            <Button onClick={onCancel} color="secondary">Cancel</Button>
+            <Button type = "submit" className={classes.done} color="primary" onClick={onSubmit}> Done</Button>
+          </CardActions>
+        </Card>
+      </div>
+    );
 }

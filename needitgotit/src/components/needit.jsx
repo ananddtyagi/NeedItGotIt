@@ -47,7 +47,15 @@ export default function NeedIt() {
     setOpen(true);
   }
 
-  const handleClose = () => {
+  const formdata = (data) => {
+    setOpen(data)
+  }
+
+  const handleCancel = () => {
+    setOpen(false);
+  }
+
+  const handleSubmit = () => {
     setOpen(false);
   }
 
@@ -64,20 +72,8 @@ export default function NeedIt() {
         </Grid>
       </Grid>
 
-      <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <Card className={classes.card}>
-          <CardContent>
-            <FormControl>
-              <TextField id="name" label="name"/>
-              <TextField id="email" label="email"/>
-              <TextField id="description" label="skills"/>
-            </FormControl>
-          </CardContent>
-          <CardActions className={classes.cardActions}>
-            <Button onClick={handleClose} color="secondary">Cancel</Button>
-            <Button className={classes.done} color="primary" onClick={handleClose}>Done</Button>
-          </CardActions>
-        </Card>
+      <Dialog open={open} aria-labelledby="form-dialog-title">
+        <InputCard onCancel={handleCancel} onSubmit={handleSubmit}/>
       </Dialog>
     </div>
   );
