@@ -28,11 +28,12 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
-  card: {
-    position: 'relative',
+  cardActions: {
+    display: 'block',
   },
   done: {
-    float: 'right', 
+    display: 'inline-block',
+    float: 'right',
   }
 }));
 
@@ -72,7 +73,7 @@ export default function NeedIt() {
               <TextField id="description" label="skills"/>
             </FormControl>
           </CardContent>
-          <CardActions>
+          <CardActions className={classes.cardActions}>
             <Button onClick={handleClose} color="secondary">Cancel</Button>
             <Button className={classes.done} color="primary" onClick={handleClose}>Done</Button>
           </CardActions>
