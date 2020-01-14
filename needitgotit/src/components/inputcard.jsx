@@ -20,11 +20,12 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
-  card: {
-    minWidth: 275,
+  cardActions: {
+    display: 'block',
   },
   done: {
-    align: 'right',
+    display: 'inline-block',
+    float: 'right',
   }
 }));
 
