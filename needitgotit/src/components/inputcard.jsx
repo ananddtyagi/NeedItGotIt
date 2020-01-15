@@ -42,8 +42,6 @@ const useStyles = makeStyles(theme => ({
     });
 
     const submitForm = () => {
-      console.log(name)
-
       onSubmit(name, email, description);
 
     }
@@ -53,7 +51,6 @@ const useStyles = makeStyles(theme => ({
         ...state,
         [event.target.name]: event.target.value
       })
-      console.log(name, email, description)
     }
 
     const { name, email, description } = state;

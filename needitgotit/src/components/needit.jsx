@@ -16,6 +16,8 @@ import TextField from '@material-ui/core/TextField';
 import AddIcon from '@material-ui/icons/Add';
 
 import InputCard from './inputcard';
+import NeedItCard from './needitcard';
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -39,7 +41,6 @@ export default function NeedIt() {
   const [open, setOpen] = useState(false);
 
   const [name, email, skills] = useState([]);
-  const [inputName, inputEmail, inputDescription, dispatch] = useState([]);
 
   const onAddBtnClick = () => {
     setOpen(true);
@@ -54,11 +55,7 @@ export default function NeedIt() {
   }
 
   const handleSubmit = (inputName, inputEmail, inputDescription) => {
-    setInputList(inputList.concat(<InputCard></InputCard>))
-    inputName={inputName}; inputEmail={inputEmail}; inputDescription={inputDescription};
-    console.log(inputName);
-    console.log(inputEmail);
-    console.log(inputDescription);
+    setInputList(inputList.concat(<NeedItCard cardName={inputName} cardEmail={inputEmail} cardDescription={inputDescription}></NeedItCard>))
     setOpen(false);
   }
 
@@ -76,11 +73,11 @@ export default function NeedIt() {
           {inputList}
         </Grid>
       </Grid>
-      <NeedItDispatch.Provider value={dispatch}>
+
         <Dialog open={open} aria-labelledby="form-dialog-title">
           <InputCard onCancel={handleCancel} onSubmit={handleSubmit} />
         </Dialog>
-      </NeedItDispatch.Provider>
+
 
     </div>
   );
