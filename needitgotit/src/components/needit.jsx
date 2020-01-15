@@ -1,4 +1,4 @@
-import React, {useState, setState} from 'react';
+import React, {useState, setState, useReducer } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -28,20 +28,18 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
-  cardActions: {
-    display: 'block',
-  },
-  done: {
-    display: 'inline-block',
-    float: 'right',
-  }
+
 }));
 
+const NeedItDispatch = React.createContext(null);
 
 export default function NeedIt() {
   const classes = useStyles();
   const [inputList, setInputList] = useState([]);
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
+
+  const [name, email, skills] = useState([]);
+  const [inputName, inputEmail, inputDescription, dispatch] = useState([]);
 
   const onAddBtnClick = () => {
     setOpen(true);
@@ -55,9 +53,16 @@ export default function NeedIt() {
     setOpen(false);
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = (inputName, inputEmail, inputDescription) => {
+    setInputList(inputList.concat(<InputCard></InputCard>))
+    inputName={inputName}; inputEmail={inputEmail}; inputDescription={inputDescription};
+    console.log(inputName);
+    console.log(inputEmail);
+    console.log(inputDescription);
     setOpen(false);
   }
+
+
 
   return (
     <div className={classes.root}>
@@ -71,10 +76,12 @@ export default function NeedIt() {
           {inputList}
         </Grid>
       </Grid>
+      <NeedItDispatch.Provider value={dispatch}>
+        <Dialog open={open} aria-labelledby="form-dialog-title">
+          <InputCard onCancel={handleCancel} onSubmit={handleSubmit} />
+        </Dialog>
+      </NeedItDispatch.Provider>
 
-      <Dialog open={open} aria-labelledby="form-dialog-title">
-        <InputCard onCancel={handleCancel} onSubmit={handleSubmit}/>
-      </Dialog>
     </div>
   );
 }
