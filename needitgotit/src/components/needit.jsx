@@ -24,6 +24,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
     paddingTop: "10%",
+    display: 'inline-block'
   },
   paper: {
     padding: theme.spacing(2),
@@ -63,17 +64,26 @@ export default function NeedIt() {
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={3} justify="center">
-        <Grid item xs={6}>
-          <Button onClick={onAddBtnClick}>
-            <Paper className={classes.paper}>
-              <AddIcon/>
-            </Paper>
-          </Button>
-          {inputList}
+      <div>
+        <Grid container spacing={3}>
+          <Grid item xs={6}>
+            <Button onClick={onAddBtnClick}>
+              <Paper className={classes.paper}>
+                <AddIcon/>
+              </Paper>
+            </Button>
+            {inputList}
+          </Grid>
+          <Grid item xs={6}>
+            <Button onClick={onAddBtnClick}>
+              <Paper className={classes.paper}>
+                <AddIcon/>
+              </Paper>
+            </Button>
+            {inputList}
+          </Grid>
         </Grid>
-      </Grid>
-
+      </div>
         <Dialog open={open} aria-labelledby="form-dialog-title">
           <InputCard onCancel={handleCancel} onSubmit={handleSubmit} />
         </Dialog>
