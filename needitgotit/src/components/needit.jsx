@@ -34,7 +34,6 @@ const useStyles = makeStyles(theme => ({
 
 }));
 
-const NeedItDispatch = React.createContext(null);
 
 export default function NeedIt() {
   const classes = useStyles();
