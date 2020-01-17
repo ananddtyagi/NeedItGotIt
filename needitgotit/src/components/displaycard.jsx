@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
 
 
 
-  export default function NeedItCard({cardName, cardEmail, cardDescription}) {
+  export default function DisplayCard({cardName, cardEmail, cardDescription}) {
 
     const classes = useStyles();
 

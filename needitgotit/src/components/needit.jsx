@@ -16,7 +16,7 @@ import TextField from '@material-ui/core/TextField';
 import AddIcon from '@material-ui/icons/Add';
 
 import InputCard from './inputcard';
-import NeedItCard from './needitcard';
+import DisplayCard from './displaycard';
 
 
 
@@ -38,12 +38,21 @@ const NeedItDispatch = React.createContext(null);
 
 export default function NeedIt() {
   const classes = useStyles();
-  const [inputList, setInputList] = useState([]);
+  const [needItList, setNeedItList] = useState([]);
+  const [gotItList, setGotItList] = useState([]);
+
   const [open, setOpen] = useState(false);
 
   const [name, email, skills] = useState([]);
+  const [side, setSide] = useState("");
 
-  const onAddBtnClick = () => {
+  const onAddNeedIt = () => {
+    setSide("NeedIt");
+    setOpen(true);
+  }
+
+  const onAddGotIt = () => {
+    setSide("GotIt");
     setOpen(true);
   }
 
@@ -56,7 +65,12 @@ export default function NeedIt() {
   }
 
   const handleSubmit = (inputName, inputEmail, inputDescription) => {
-    setInputList(inputList.concat(<NeedItCard cardName={inputName} cardEmail={inputEmail} cardDescription={inputDescription}></NeedItCard>))
+    if(side === "NeedIt"){
+      setNeedItList(needItList.concat(<DisplayCard cardName={inputName} cardEmail={inputEmail} cardDescription={inputDescription}></DisplayCard>))
+    }
+    else if(side === "GotIt"){
+      setGotItList(gotItList.concat(<DisplayCard cardName={inputName} cardEmail={inputEmail} cardDescription={inputDescription}></DisplayCard>))
+    }
     setOpen(false);
   }
 
@@ -67,20 +81,20 @@ export default function NeedIt() {
       <div>
         <Grid container spacing={3}>
           <Grid item xs={6}>
-            <Button onClick={onAddBtnClick}>
+            <Button onClick={onAddNeedIt}>
               <Paper className={classes.paper}>
                 <AddIcon/>
               </Paper>
             </Button>
-            {inputList}
+            {needItList}
           </Grid>
           <Grid item xs={6}>
-            <Button onClick={onAddBtnClick}>
+            <Button onClick={onAddGotIt}>
               <Paper className={classes.paper}>
                 <AddIcon/>
               </Paper>
             </Button>
-            {inputList}
+            {gotItList}
           </Grid>
         </Grid>
       </div>
