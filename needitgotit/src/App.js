@@ -4,7 +4,8 @@ import './App.css';
 
 import { makeStyles } from '@material-ui/core/styles';
 
-import NeedIt from './components/needit';
+import MainContent from './components/maincontent';
+
 import Grid from '@material-ui/core/Grid';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
@@ -67,8 +68,8 @@ function App() {
           </AppBar>
         </Box>
       </header>
-      <Grid className={classes.content} container spacing={3} justify="center">
-        <NeedIt></NeedIt>
+      <Grid className={classes.content} container spacing={3}>
+        <MainContent></MainContent>
       </Grid>
     </div>
   );

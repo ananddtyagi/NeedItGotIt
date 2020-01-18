@@ -5,13 +5,15 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
 import Dialog from '@material-ui/core/Dialog';
-
+import Box from '@material-ui/core/Box';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
-
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 
 import AddIcon from '@material-ui/icons/Add';
 
@@ -31,11 +33,17 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
-
+  headbar: {
+    backgroundColor: '#6a0dad',
+    position: 'fixed',
+  },
+  title: {
+    flexGrow: 1,
+  }
 }));
 
 
-export default function NeedIt() {
+export default function MainContent() {
   const classes = useStyles();
   const [needItList, setNeedItList] = useState([]);
   const [gotItList, setGotItList] = useState([]);
