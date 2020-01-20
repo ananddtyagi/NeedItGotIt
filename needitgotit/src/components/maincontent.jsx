@@ -25,8 +25,6 @@ import DisplayCard from './displaycard';
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    paddingTop: "10%",
-    display: 'inline-block'
   },
   paper: {
     padding: theme.spacing(2),
@@ -35,10 +33,18 @@ const useStyles = makeStyles(theme => ({
   },
   headbar: {
     backgroundColor: '#6a0dad',
-    position: 'fixed',
   },
   title: {
     flexGrow: 1,
+  },
+  grid: {
+    padding: 0,
+  },
+  column: {
+    flexGrow: 1,
+    align: 'center',
+    padding: 'auto',
+    alignItems:"center"
   }
 }));
 
@@ -87,22 +93,32 @@ export default function MainContent() {
     <div className={classes.root}>
       <div>
         <Grid container spacing={3}>
-          <Grid item xs={6}>
-            <Button onClick={onAddNeedIt}>
+          <div className={classes.column}>
+            <Grid item xs={12} sm={6}>
               <Paper className={classes.paper}>
-                <AddIcon/>
+                <Typography>Need It</Typography>
               </Paper>
-            </Button>
-            {needItList}
-          </Grid>
-          <Grid item xs={6}>
-            <Button onClick={onAddGotIt}>
+              <Button onClick={onAddNeedIt}>
+                <Paper className={classes.paper}>
+                  <AddIcon/>
+                </Paper>
+              </Button>
+              {needItList}
+            </Grid>
+          </div>
+          <div className={classes.column}>
+            <Grid item xs={12} sm={6}>
               <Paper className={classes.paper}>
-                <AddIcon/>
+                <Typography>Need It</Typography>
               </Paper>
-            </Button>
-            {gotItList}
-          </Grid>
+              <Button onClick={onAddGotIt}>
+                <Paper className={classes.paper}>
+                  <AddIcon/>
+                </Paper>
+              </Button>
+              {gotItList}
+            </Grid>
+          </div>
         </Grid>
       </div>
         <Dialog open={open} aria-labelledby="form-dialog-title">

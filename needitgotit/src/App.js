@@ -24,9 +24,6 @@ const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
   title: {
     flexGrow: 1,
   },
@@ -35,13 +32,13 @@ const useStyles = makeStyles(theme => ({
   },
   headbar: {
     backgroundColor: '#6a0dad',
-    position: 'fixed',
   },
   header: {
-    minHeight: '60px',
+    minHeight: '100px',
   },
   content: {
     position: 'fixed',
+    overflow: 'hidden',
   }
 }));
 
