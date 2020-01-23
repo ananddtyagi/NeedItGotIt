@@ -109,7 +109,7 @@ export default function MainContent() {
           <div className={classes.column}>
             <Grid item xs={12} sm={6}>
               <Paper className={classes.paper}>
-                <Typography>Need It</Typography>
+                <Typography>Got It</Typography>
               </Paper>
               <Button onClick={onAddGotIt}>
                 <Paper className={classes.paper}>
