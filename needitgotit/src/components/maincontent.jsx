@@ -38,12 +38,11 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
   },
   grid: {
-    padding: 0,
+    padding: '10px',
   },
   column: {
     flexGrow: 1,
     align: 'center',
-    padding: 'auto',
     alignItems:"center"
   }
 }));
@@ -92,7 +91,7 @@ export default function MainContent() {
   return (
     <div className={classes.root}>
       <div>
-        <Grid container spacing={3}>
+        <Grid container spacing={3} className={classes.grid}>
           <div className={classes.column}>
             <Grid item xs={12} sm={6}>
               <Paper className={classes.paper}>

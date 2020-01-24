@@ -32,12 +32,12 @@ const useStyles = makeStyles(theme => ({
   },
   headbar: {
     backgroundColor: '#6a0dad',
+    position: 'static',
   },
   header: {
-    minHeight: '100px',
   },
   content: {
-    position: 'fixed',
+
     overflow: 'hidden',
   }
 }));
@@ -53,21 +53,29 @@ function App() {
           content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
         />
       </head>
-      <header className={classes.header}>
-        <Box component="span" m={1}>
-          <AppBar className={classes.headbar}>
-            <Toolbar>
-              <Typography variant="h6" className={classes.title}>
-                Need It / Got It
-              </Typography>
-              <AccountCircle />
-            </Toolbar>
-          </AppBar>
-        </Box>
-      </header>
-      <Grid className={classes.content} container spacing={3}>
-        <MainContent></MainContent>
-      </Grid>
+      <div className={classes.root}>
+        <Grid constainer spacing={3}>
+          <Grid item>
+            <div className={classes.header}>
+              <Box component="span">
+                <AppBar className={classes.headbar}>
+                  <Toolbar>
+                    <Typography variant="h6" className={classes.title}>
+                      Need It / Got It
+                    </Typography>
+                    <AccountCircle />
+                  </Toolbar>
+                </AppBar>
+              </Box>
+            </div>
+          </Grid>
+          <Grid item>
+            <div className={classes.content}>
+              <MainContent></MainContent>
+            </div>
+          </Grid>
+        </Grid>
+      </div>
     </div>
   );
 }

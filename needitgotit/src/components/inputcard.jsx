@@ -13,7 +13,7 @@ import Input from '@material-ui/core/TextField';
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    paddingTop: "10%",
+
   },
   paper: {
     padding: theme.spacing(2),
