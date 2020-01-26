@@ -14,12 +14,40 @@ import TextField from '@material-ui/core/TextField';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import Tab from '@material-ui/core/Tab';
+import PropTypes from 'prop-types';
+
+import Tabs from '@material-ui/core/Tabs';
+
 
 import AddIcon from '@material-ui/icons/Add';
 
 import InputCard from './inputcard';
 import DisplayCard from './displaycard';
 
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <Typography
+      component="div"
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && <Box p={3}>{children}</Box>}
+    </Typography>
+  );
+}
+
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
+}
 
 
 const useStyles = makeStyles(theme => ({
@@ -57,6 +85,11 @@ export default function MainContent() {
 
   const [name, email, skills] = useState([]);
   const [side, setSide] = useState("");
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   const onAddNeedIt = () => {
     setSide("NeedIt");
@@ -91,35 +124,27 @@ export default function MainContent() {
   return (
     <div className={classes.root}>
       <div>
-        <Grid container spacing={3} className={classes.grid}>
-          <div className={classes.column}>
-            <Grid item xs={12} sm={6}>
-              <Paper className={classes.paper}>
-                <Typography>Need It</Typography>
-              </Paper>
-              <Button onClick={onAddNeedIt}>
-                <Paper className={classes.paper}>
-                  <AddIcon/>
-                </Paper>
-              </Button>
-              {needItList}
-            </Grid>
-          </div>
-          <div className={classes.column}>
-            <Grid item xs={12} sm={6}>
-              <Paper className={classes.paper}>
-                <Typography>Got It</Typography>
-              </Paper>
-              <Button onClick={onAddGotIt}>
-                <Paper className={classes.paper}>
-                  <AddIcon/>
-                </Paper>
-              </Button>
-              {gotItList}
-            </Grid>
-          </div>
-        </Grid>
+
+        <Paper square>
+          <Tabs
+            value={value}
+            indicatorColor="primary"
+            textColor="primary"
+            onChange={handleChange}
+            aria-label="tabs"
+          >
+            <Tab label="Need It" />
+            <Tab label="Got It" />
+          </Tabs>
+        </Paper>
+        <TabPanel value={value} index={0}>
+          //NEED IT CONTENT
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          //GOT IT CONTENT
+        </TabPanel>
       </div>
+
         <Dialog open={open} aria-labelledby="form-dialog-title">
           <InputCard onCancel={handleCancel} onSubmit={handleSubmit} />
         </Dialog>
