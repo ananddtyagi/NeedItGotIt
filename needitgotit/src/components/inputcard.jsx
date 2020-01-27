@@ -5,8 +5,6 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
-import FormControl from '@material-ui/core/FormControl';
-import TextField from '@material-ui/core/TextField';
 import Input from '@material-ui/core/TextField';
 
 
@@ -35,6 +33,8 @@ const useStyles = makeStyles(theme => ({
 
     const classes = useStyles();
 
+    const { name, email, description } = state;
+
     const [state, setState] = useState({
       name: "",
       email: "",
@@ -43,7 +43,7 @@ const useStyles = makeStyles(theme => ({
 
     const submitForm = () => {
       onSubmit(name, email, description);
-
+  
     }
 
     const handleChange = event => {
@@ -52,8 +52,6 @@ const useStyles = makeStyles(theme => ({
         [event.target.name]: event.target.value
       })
     }
-
-    const { name, email, description } = state;
 
     return (
       <div>
