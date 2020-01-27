@@ -72,6 +72,9 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     align: 'center',
     alignItems:"center"
+  },
+  tab: {
+    width: '100px'
   }
 }));
 
@@ -132,12 +135,13 @@ export default function MainContent() {
             textColor="primary"
             onChange={handleChange}
             aria-label="tabs"
+            centered
           >
-            <Tab label="Need It" />
-            <Tab label="Got It" />
+            <Tab fullWidth label="Need It" />
+            <Tab fullWidth label="Got It" />
           </Tabs>
         </Paper>
-        <TabPanel value={value} index={0}>
+        <TabPanel value={value} index={0} >
           //NEED IT CONTENT
         </TabPanel>
         <TabPanel value={value} index={1}>
