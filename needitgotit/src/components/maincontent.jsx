@@ -82,13 +82,10 @@ const useStyles = makeStyles(theme => ({
 export default function MainContent() {
   const classes = useStyles();
 
-  const { name, email, description } = state;
-
   const [needItList, setNeedItList] = useState([]);
   const [gotItList, setGotItList] = useState([]);
 
   const [open, setOpen] = useState(false);
-
   const [name, email, skills] = useState([]);
   const [side, setSide] = useState("");
   const [value, setValue] = React.useState(0);
@@ -117,10 +114,26 @@ export default function MainContent() {
 
   const handleSubmit = (inputName, inputEmail, inputDescription) => {
     if(side === "NeedIt"){
-      setNeedItList(needItList.concat([{inputName}, {inputEmail}, {inputDescription}, ])
+      setNeedItList([
+        ...needItList,
+        {
+          name: inputName,
+          email: inputEmail,
+          description: inputDescription
+        }
+      ])
+      //setNeedItList(needItList.concat([{inputName}, {inputEmail}, {inputDescription}, ])
     }
     else if(side === "GotIt"){
-      setGotItList(gotItList.concat(<DisplayCard cardName={inputName} cardEmail={inputEmail} cardDescription={inputDescription}></DisplayCard>))
+      setGotItList([
+        ...gotItList,
+        {
+          name: inputName,
+          email: inputEmail,
+          description: inputDescription
+        }
+      ])
+      //setGotItList(gotItList.concat(<DisplayCard cardName={inputName} cardEmail={inputEmail} cardDescription={inputDescription}></DisplayCard>))
     }
     setOpen(false);
   }
