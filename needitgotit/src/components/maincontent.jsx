@@ -75,6 +75,10 @@ const useStyles = makeStyles(theme => ({
   },
   tab: {
     width: '100px'
+  },
+  collectionsoverview: {
+    display: 'flex',
+    flex-direction: 'column',
   }
 }));
 
@@ -120,6 +124,8 @@ export default function MainContent() {
           name: inputName,
           email: inputEmail,
           description: inputDescription
+          index: needItList.length,
+
         }
       ])
       //setNeedItList(needItList.concat([{inputName}, {inputEmail}, {inputDescription}, ])
@@ -130,7 +136,8 @@ export default function MainContent() {
         {
           name: inputName,
           email: inputEmail,
-          description: inputDescription
+          description: inputDescription,
+          index: gotItList.length,
         }
       ])
       //setGotItList(gotItList.concat(<DisplayCard cardName={inputName} cardEmail={inputEmail} cardDescription={inputDescription}></DisplayCard>))
@@ -158,10 +165,14 @@ export default function MainContent() {
           </Tabs>
         </Paper>
         <TabPanel value={value} index={0} >
-          //NEED IT CONTENT
+          {needItList.map(card => (
+            <DisplayCard key={card.index} cardName = {card.name} cardEmail = {card.email} cardDescription = {card.description}/>
+          ))}
         </TabPanel>
         <TabPanel value={value} index={1}>
-          //GOT IT CONTENT
+          {gotItList.map(card => (
+            <DisplayCard key={card.index} cardName = {card.name} cardEmail = {card.email} cardDescription = {card.description}/>
+          ))}
         </TabPanel>
       </div>
 
@@ -169,7 +180,7 @@ export default function MainContent() {
           <InputCard onCancel={handleCancel} onSubmit={handleSubmit} />
         </Dialog>
 
-        <div className='collections-overview'> //displaying the content
+        <div className = {classes.collectionsoverview}> //displaying the content
             {side === 'NeedIt'?
                 (needItList.map(item=>
                 <DisplayCard key={item[3]} cardName={item[0]} cardEmail={item[1]} cardDescription={item[2]}/>)
