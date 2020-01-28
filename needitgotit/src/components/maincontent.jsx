@@ -81,6 +81,9 @@ const useStyles = makeStyles(theme => ({
 
 export default function MainContent() {
   const classes = useStyles();
+
+  const { name, email, description } = state;
+
   const [needItList, setNeedItList] = useState([]);
   const [gotItList, setGotItList] = useState([]);
 
@@ -114,7 +117,7 @@ export default function MainContent() {
 
   const handleSubmit = (inputName, inputEmail, inputDescription) => {
     if(side === "NeedIt"){
-      setNeedItList(needItList.concat(<DisplayCard cardName={inputName} cardEmail={inputEmail} cardDescription={inputDescription}></DisplayCard>))
+      setNeedItList(needItList.concat([{inputName}, {inputEmail}, {inputDescription}, ])
     }
     else if(side === "GotIt"){
       setGotItList(gotItList.concat(<DisplayCard cardName={inputName} cardEmail={inputEmail} cardDescription={inputDescription}></DisplayCard>))
@@ -137,8 +140,8 @@ export default function MainContent() {
             aria-label="tabs"
             centered
           >
-            <Tab fullWidth label="Need It" />
-            <Tab fullWidth label="Got It" />
+            <Tab fullWidth label="Need It" onClick={() => setSide("NeedIt")}/>
+            <Tab fullWidth label="Got It" onClick={() => setSide("GotIt")}/>
           </Tabs>
         </Paper>
         <TabPanel value={value} index={0} >
@@ -153,6 +156,15 @@ export default function MainContent() {
           <InputCard onCancel={handleCancel} onSubmit={handleSubmit} />
         </Dialog>
 
+        <div className='collections-overview'> //displaying the content
+            {side === 'NeedIt'?
+                (needItList.map(item=>
+                <DisplayCard key={item[3]} cardName={item[0]} cardEmail={item[1]} cardDescription={item[2]}/>)
+                )
+            : this.state.GotItCollections.map(item=>
+                <DisplayCard key={item[3]} cardName={item[0]} cardEmail={item[1]} cardDescription={item[2]}/>)
+            }
+        </div>
 
     </div>
   );
