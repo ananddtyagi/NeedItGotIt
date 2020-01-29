@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
 
     const classes = useStyles();
 
-    const { name, email, description } = state;
+
 
     const [state, setState] = useState({
       name: "",
@@ -43,7 +43,7 @@ const useStyles = makeStyles(theme => ({
 
     const submitForm = () => {
       onSubmit(name, email, description);
-  
+
     }
 
     const handleChange = event => {
@@ -52,6 +52,8 @@ const useStyles = makeStyles(theme => ({
         [event.target.name]: event.target.value
       })
     }
+
+    const { name, email, description } = state;
 
     return (
       <div>

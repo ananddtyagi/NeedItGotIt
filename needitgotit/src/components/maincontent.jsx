@@ -1,4 +1,4 @@
-import React, {useState, setState, useReducer } from 'react';
+import React, {useState, setState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -77,9 +77,12 @@ const useStyles = makeStyles(theme => ({
     width: '100px'
   },
   collectionsoverview: {
-    display: 'flex',
-    flex-direction: 'column',
-  }
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr 1fr 1fr',
+    gridGap: '10px',
+    height: '50px',
+  },
+
 }));
 
 
@@ -91,20 +94,24 @@ export default function MainContent() {
 
   const [open, setOpen] = useState(false);
   const [name, email, skills] = useState([]);
-  const [side, setSide] = useState("");
+  const [side, setSide] = useState("NeedIt");
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-  const onAddNeedIt = () => {
-    setSide("NeedIt");
-    setOpen(true);
-  }
+  // const onAddNeedIt = () => {
+  //   setSide("NeedIt");
+  //   setOpen(true);
+  // }
+  //
+  // const onAddGotIt = () => {
+  //   setSide("GotIt");
+  //   setOpen(true);
+  // }
 
-  const onAddGotIt = () => {
-    setSide("GotIt");
+  const addCard = () => {
     setOpen(true);
   }
 
@@ -119,33 +126,39 @@ export default function MainContent() {
   const handleSubmit = (inputName, inputEmail, inputDescription) => {
     if(side === "NeedIt"){
       setNeedItList([
-        ...needItList,
+
         {
           name: inputName,
           email: inputEmail,
-          description: inputDescription
+          description: inputDescription,
           index: needItList.length,
 
-        }
+        },
+        ...needItList,
       ])
       //setNeedItList(needItList.concat([{inputName}, {inputEmail}, {inputDescription}, ])
     }
     else if(side === "GotIt"){
       setGotItList([
-        ...gotItList,
+
         {
           name: inputName,
           email: inputEmail,
           description: inputDescription,
           index: gotItList.length,
-        }
+        },
+        ...gotItList,
       ])
       //setGotItList(gotItList.concat(<DisplayCard cardName={inputName} cardEmail={inputEmail} cardDescription={inputDescription}></DisplayCard>))
     }
+    console.log(side)
     setOpen(false);
   }
 
 
+  useEffect(() => {
+
+  })
 
   return (
     <div className={classes.root}>
@@ -165,13 +178,34 @@ export default function MainContent() {
           </Tabs>
         </Paper>
         <TabPanel value={value} index={0} >
+          <Grid
+                container
+                spacing={2}
+                direction="row"
+                justify="flex-start"
+                alignItems="flex-start"
+            >
+          <Grid item xs={12} sm={6} md={3}>
+            <Button onClick={addCard} >add</Button>
+          </Grid>
           {needItList.map(card => (
-            <DisplayCard key={card.index} cardName = {card.name} cardEmail = {card.email} cardDescription = {card.description}/>
+              <Grid item xs={12} sm={6} md={3} key = {card.index}>
+                <DisplayCard key={card.index} cardName = {card.name} cardEmail = {card.email} cardDescription = {card.description}/>
+              </Grid>
           ))}
+          </Grid>
         </TabPanel>
+
         <TabPanel value={value} index={1}>
+
+          <Grid item xs={12} sm={6} md={3}>
+            <Button onClick={addCard} >add</Button>
+          </Grid>
           {gotItList.map(card => (
-            <DisplayCard key={card.index} cardName = {card.name} cardEmail = {card.email} cardDescription = {card.description}/>
+            <Grid item xs={12} sm={6} md={3} key = {card.index}>
+              <DisplayCard key={card.index} cardName = {card.name} cardEmail = {card.email} cardDescription = {card.description}/>
+            </Grid>
+
           ))}
         </TabPanel>
       </div>
@@ -180,15 +214,6 @@ export default function MainContent() {
           <InputCard onCancel={handleCancel} onSubmit={handleSubmit} />
         </Dialog>
 
-        <div className = {classes.collectionsoverview}> //displaying the content
-            {side === 'NeedIt'?
-                (needItList.map(item=>
-                <DisplayCard key={item[3]} cardName={item[0]} cardEmail={item[1]} cardDescription={item[2]}/>)
-                )
-            : this.state.GotItCollections.map(item=>
-                <DisplayCard key={item[3]} cardName={item[0]} cardEmail={item[1]} cardDescription={item[2]}/>)
-            }
-        </div>
 
     </div>
   );

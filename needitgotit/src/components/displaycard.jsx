@@ -17,13 +17,7 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
-  cardActions: {
-    display: 'block',
-  },
-  done: {
-    display: 'inline-block',
-    float: 'right',
-  }
+  
 }));
 
 
@@ -32,12 +26,9 @@ const useStyles = makeStyles(theme => ({
 
     const classes = useStyles();
 
-    useEffect(() => {
-      console.log({cardName})
-    })
     return (
-      <div>
-        <Card className={classes.card}>
+      <div className={classes.collectionpreview}>
+        <Card className={classes.preview}>
           <CardContent>
             <Typography>{cardName}</Typography>
             <Typography>{cardEmail}</Typography>
