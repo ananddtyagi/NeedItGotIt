@@ -186,7 +186,7 @@ export default function MainContent() {
                 alignItems="flex-start"
             >
           <Grid item xs={12} sm={6} md={3}>
-            <Button onClick={addCard} >add</Button>
+            <Button onClick={addCard}><AddIcon/></Button>
           </Grid>
           {needItList.map(card => (
               <Grid item xs={12} sm={6} md={3} key = {card.index}>
@@ -199,7 +199,7 @@ export default function MainContent() {
         <TabPanel value={value} index={1}>
 
           <Grid item xs={12} sm={6} md={3}>
-            <Button onClick={addCard} >add</Button>
+            <Button onClick={addCard}><AddIcon/></Button>
           </Grid>
           {gotItList.map(card => (
             <Grid item xs={12} sm={6} md={3} key = {card.index}>
