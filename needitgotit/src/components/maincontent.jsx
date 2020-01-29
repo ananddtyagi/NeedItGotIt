@@ -177,6 +177,7 @@ export default function MainContent() {
             <Tab fullWidth label="Got It" onClick={() => setSide("GotIt")}/>
           </Tabs>
         </Paper>
+        {/*------------------------------*/}
         <TabPanel value={value} index={0} >
           <Grid
                 container
@@ -195,9 +196,15 @@ export default function MainContent() {
           ))}
           </Grid>
         </TabPanel>
-
+        {/*------------------------------*/}
         <TabPanel value={value} index={1}>
-
+          <Grid
+                container
+                spacing={2}
+                direction="row"
+                justify="flex-start"
+                alignItems="flex-start"
+            >
           <Grid item xs={12} sm={6} md={3}>
             <Button onClick={addCard}><AddIcon/></Button>
           </Grid>
@@ -205,11 +212,11 @@ export default function MainContent() {
             <Grid item xs={12} sm={6} md={3} key = {card.index}>
               <DisplayCard key={card.index} cardName = {card.name} cardEmail = {card.email} cardDescription = {card.description}/>
             </Grid>
-
           ))}
+          </Grid>
         </TabPanel>
       </div>
-
+      {/*------------------------------*/}
         <Dialog open={open} aria-labelledby="form-dialog-title">
           <InputCard onCancel={handleCancel} onSubmit={handleSubmit} />
         </Dialog>
