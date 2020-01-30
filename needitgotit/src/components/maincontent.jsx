@@ -126,7 +126,6 @@ export default function MainContent() {
   const handleSubmit = (inputName, inputEmail, inputDescription) => {
     if(side === "NeedIt"){
       setNeedItList([
-
         {
           name: inputName,
           email: inputEmail,
@@ -151,7 +150,7 @@ export default function MainContent() {
       ])
       //setGotItList(gotItList.concat(<DisplayCard cardName={inputName} cardEmail={inputEmail} cardDescription={inputDescription}></DisplayCard>))
     }
-    console.log(side)
+
     setOpen(false);
   }
 

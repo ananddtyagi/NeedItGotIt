@@ -1,13 +1,24 @@
 Requirements:
 
-MVP: 1.0
---Two sections, need it and got it, which have a series of cards
-----Cards
-------card contains the information of the individual or organization, contact info, short description of role / skills
---At the bottom of each section, have a small button that allows you to add a new card
+MVP: 0.1.0
+0.1.1--Two sections, need it and got it, which have a series of cards
+0.1.1.1----Cards
+0.1.1.1.1------card contains the information of the individual or organization, contact info, short description of role / skills
+0.1.2--At the bottom of each section, have a small button that allows you to add a new card
 
-2.0
---Login screen, only NYU emails
+--COMPLETED-- :)
 
-3.0
-??
+0.2.0
+0.2.1--Last formatting
+0.2.2--Add a database
+0.2.3--Add a delete Button
+
+0.3.0
+0.3.1--individual accounts (account management)
+0.3.2----Dashboard for cards someone posts
+0.3.2.1----Only your posts can be deleted by you
+
+YAY THAT"S A PRODUCT YOU CAN HAVE PEOPLE USE (Y)
+
+0.4.0
+--???

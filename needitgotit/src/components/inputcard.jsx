@@ -43,7 +43,6 @@ const useStyles = makeStyles(theme => ({
 
     const submitForm = () => {
       onSubmit(name, email, description);
-
     }
 
     const handleChange = event => {

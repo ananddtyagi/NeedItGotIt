@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
-  
+
 }));
 
 
@@ -27,8 +27,8 @@ const useStyles = makeStyles(theme => ({
     const classes = useStyles();
 
     return (
-      <div className={classes.collectionpreview}>
-        <Card className={classes.preview}>
+      <div>
+        <Card>
           <CardContent>
             <Typography>{cardName}</Typography>
             <Typography>{cardEmail}</Typography>

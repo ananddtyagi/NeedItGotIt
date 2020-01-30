@@ -1,6 +1,0 @@
-Diveder code
-
-<List>
- <Divider classes={classes.divider} orientation="vertical" />
-</List>
- <NeedIt></NeedIt>
