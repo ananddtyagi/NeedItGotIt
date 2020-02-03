@@ -56,8 +56,8 @@ const useStyles = makeStyles(theme => ({
     marginLeft: -16
   },
   card: {
-    backgroundColor: '#5f6763',
-    color: '#fff'
+    backgroundColor: '#fff',
+    color: '#000000'
   },
   button: {
     marginTop: 5
@@ -101,9 +101,6 @@ const useStyles = makeStyles(theme => ({
             <CardActions disableSpacing>
               <IconButton className={classes.button} aria-label="add to favorites">
                 <FavoriteIcon />
-              </IconButton>
-              <IconButton className={classes.button} aria-label="share">
-                <ShareIcon />
               </IconButton>
               <IconButton className={classes.button} aria-label="person add">
                 <PersonAddIcon />
