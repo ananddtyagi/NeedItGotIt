@@ -186,7 +186,7 @@ export default function MainContent() {
                 alignItems="flex-start"
             >
           <Grid item xs={12} sm={6} md={3}>
-            <Button onClick={addCard}><AddIcon/></Button>
+            <Button onClick={addCard} ><AddIcon/></Button>
           </Grid>
           {needItList.map(card => (
               <Grid item xs={12} sm={6} md={3} key = {card.index}>

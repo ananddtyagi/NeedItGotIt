@@ -6,6 +6,9 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/TextField';
+import Grid from '@material-ui/core/Grid';
+import TextField from '@material-ui/core/TextField';
+import Paper from '@material-ui/core/Paper';
 
 
 const useStyles = makeStyles(theme => ({
@@ -18,12 +21,27 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
+  form: {
+    flexGrow: 1,
+    paddingTop: 10,
+  },
+  card: {
+    maxWidth: '350px',
+    minHeight: '300px',
+    paddingTop: '20px',
+  },
   cardActions: {
     display: 'block',
+  },
+  cardContent: {
+    textAlign: 'center',
   },
   done: {
     display: 'inline-block',
     float: 'right',
+  },
+  desc: {
+
   }
 }));
 
@@ -57,11 +75,19 @@ const useStyles = makeStyles(theme => ({
     return (
       <div>
         <Card className={classes.card}>
-          <CardContent>
+          <CardContent className={classes.cardContent}>
             <form>
-              <Input name="name" label="name" onChange={handleChange}/>
-              <Input name="email" label="email" onChange={handleChange}/>
-              <Input name="description" label="skills" onChange={handleChange}/>
+              <Grid container className={classes.form} spacing={2}>
+                <Grid item xs={12}>
+                  <Input fullWidth="true" name="name" label="name" variant="outlined" onChange={handleChange}/>
+                </Grid>
+                <Grid item xs={12}>
+                  <Input fullWidth="true"name="email" label="email" variant="outlined" onChange={handleChange}/>
+                </Grid>
+                <Grid item xs={12} >
+                  <Input fullWidth="true" className={classes.desc} size="medium" name="description" label="skills" variant="outlined" onChange={handleChange} multiline="true" rows="5"/>
+                </Grid>
+              </Grid>
             </form>
           </CardContent>
           <CardActions className={classes.cardActions}>
