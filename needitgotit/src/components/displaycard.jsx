@@ -30,6 +30,9 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
+  label: {
+    float: 'left',
+  },
   response: {
     float: 'left'
   }
@@ -48,33 +51,45 @@ const useStyles = makeStyles(theme => ({
             <form>
               <Grid container className={classes.form} spacing={2}>
                 <Grid item container>
-                  <TextField
-                    fullWidth="true"
-                    label="Name"
-                    InputProps={{
-                      readOnly: true,
-                    }}
-                    defaultValue = {cardName}
-                    variant="filled"
-                    className={classes.response}
-                  />
-                </Grid>
-                <Grid item container>
-                  <TextField
-                    fullWidth="true"
-                    label="Email"
-                    InputProps={{
-                      readOnly: true,
-                    }}
-                    defaultValue = {cardEmail}
-                    variant="filled"
-                    className={classes.response}
-                  />
-                </Grid>
-                <Grid item container>
+                  <Grid item xs={12} >
+                    <Typography className={classes.label}>Name</Typography>
+                  </Grid>
+                  <Grid item xs={12}>
                     <TextField
                       fullWidth="true"
-                      label="Description"
+                      InputProps={{
+                        readOnly: true,
+                      }}
+                      defaultValue = {cardName}
+                      variant="filled"
+                      className={classes.response}
+                    />
+                  </Grid>
+                </Grid>
+                <Grid item container>
+                  <Grid item xs={12} >
+                    <Typography className={classes.label}>Email</Typography>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      fullWidth="true"
+                      InputProps={{
+                        readOnly: true,
+                      }}
+                      defaultValue = {cardEmail}
+                      variant="filled"
+                      className={classes.response}
+                    />
+                  </Grid>
+
+                </Grid>
+                <Grid item container>
+                  <Grid item xs={12} >
+                    <Typography className={classes.label}>Description</Typography>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      fullWidth="true"
                       InputProps={{
                         readOnly: true,
                       }}
@@ -83,6 +98,7 @@ const useStyles = makeStyles(theme => ({
                       className={classes.response}
                       multiline
                     />
+                  </Grid>
                 </Grid>
               </Grid>
             </form>
