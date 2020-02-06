@@ -51,8 +51,6 @@ const useStyles = makeStyles(theme => ({
 
     const classes = useStyles();
 
-
-
     const [state, setState] = useState({
       name: "",
       email: "",
@@ -84,7 +82,7 @@ const useStyles = makeStyles(theme => ({
                 <Grid item xs={12}>
                   <Input fullWidth="true"name="email" label="email" variant="outlined" onChange={handleChange}/>
                 </Grid>
-                <Grid item xs={12} >
+                <Grid item xs={12}>
                   <Input fullWidth="true" className={classes.desc} size="medium" name="description" label="skills" variant="outlined" onChange={handleChange} multiline="true" rows="5"/>
                 </Grid>
               </Grid>
