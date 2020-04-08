@@ -1,10 +1,10 @@
 import React from 'react';
 import logo from './logo.svg';
-import './Wall.css';
+import './App.css';
 
 import { makeStyles } from '@material-ui/core/styles';
 
-import MainContent from './maincontent';
+import MainContent from './components/maincontent';
 
 import Grid from '@material-ui/core/Grid';
 import List from '@material-ui/core/List';
@@ -41,11 +41,11 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function Wall() {
+function App() {
   const classes = useStyles();
 
   return (
-    <div className="Wall">
+    <div className="App">
       <head>
         <meta
           name="viewport"
@@ -79,4 +79,4 @@ function Wall() {
   );
 }
 
-export default Wall;
+export default App;
